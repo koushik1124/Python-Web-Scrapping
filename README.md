@@ -84,16 +84,18 @@ pip install requests beautifulsoup4 lxml
 
 ⚙️ How It Works
 
-Fetch: Uses requests.get() with a User-Agent header to retrieve page HTML.
+Fetch: Retrieves page HTML using requests with a custom User-Agent.
 
-Parse: Extracts <h2>, <p>, and list elements using BeautifulSoup’s tag-finding functions.
+Parse: Extracts headings, paragraphs, and list items.
 
-Export: Writes the structured content into a data.csv file.
+Export: Writes the structured data into data.csv.
 
-💡 Tip: Add time.sleep(2) between requests to avoid being rate-limited.
+💡 Tip: Add time.sleep(2) between requests to avoid rate limiting.
 
 🧭 BeautifulSoup Usage
-Common Tag Operations
+
+Common Tag Operations:
+
 soup.h1
 soup.find("p")
 soup.find("div", class_="text")
@@ -101,7 +103,12 @@ soup.find_all("h2")
 soup.find_all("li")
 
 
-Navigate the DOM tree using .parent, .next_sibling, and .find_next() to collect related data.
+You can navigate the DOM tree using:
+
+.parent, .next_sibling, .find_next()
+
+
+These help you collect related elements like subtopics under each heading.
 
 📤 Exporting Data to CSV
 import csv
@@ -112,20 +119,22 @@ with open("output.csv", "w", newline="", encoding="utf-8") as file:
     writer.writerow(["Introduction", "Overview of Python", "Basics, Syntax"])
 
 
-Each CSV row contains a section name, description, and list of subtopics.
+Each CSV row represents one section with its title, description, and topics.
 
 🚀 Advanced Topics
 
-🧠 Dynamic Pages: Use tools like Selenium, Playwright, or requests-html for JavaScript-heavy websites.
+🧠 Dynamic Pages: Use Selenium, Playwright, or requests-html for JavaScript-rendered websites.
+
 🤝 Politeness: Always include headers and respect site robots.txt and ToS.
-🔁 Customization: Change the url to target other tutorial pages or categories.
+
+🔁 Customization: Update the url variable to target other GeeksforGeeks tutorials.
 
 📜 License
 
 Licensed under the MIT License
 .
-Please ensure compliance with GeeksforGeeks’ Terms of Service
- when scraping or redistributing content.
+Ensure compliance with GeeksforGeeks’ Terms of Service
+ when scraping or redistributing data.
 
 🔗 References
 
@@ -139,5 +148,4 @@ Web Scraping with Python – Real Python
 
 🌟 Support & Feedback
 
-If you found this useful, consider giving it a ⭐ on GitHub!
-Your support helps me create more open-source tutorials and beginner-friendly projects
+If you found this project useful, please ⭐ star the repo — it helps others discover it and keeps me motivated to create more beginner-friendly open-source tutorials
